@@ -21,6 +21,10 @@ body {
     margin: 0;
     padding: 0;
     background-color: #282828;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Styles for the container */
@@ -29,7 +33,7 @@ body {
     margin: 0 auto;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    
 }
 
 /* Styles for the items inside the container */
