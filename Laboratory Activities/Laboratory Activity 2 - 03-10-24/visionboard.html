@@ -5,40 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vision Board</title>
     <link rel = "stylesheet" href = "styles.css">
+    <link href="https://db.onlinewebfonts.com/c/8f607f19b4004cfec70beff9acca54af?family=Amador+W01+Regular" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
 </head>
 <body>
 
     <div class="container">
         <!-- main content -->
-        <div class="main-content">
+        <div class="flex-container main-content">
+
             <!-- first column container -->
-            <div class="column-1">
-                <img src="assets/gym.jpg" alt="Gym" class="sample">
-                <div class="sample-1"></div>
+            <div class="flex-container column-1">
+                <img src="assets/gym.jpg" alt="Gym" class="pics">
+                <!-- flex wrapper for goals and emote-->
+                <div class="goals-emote-wrapper">
+                    <div class="goals">
+                        <h3>Goals</h3>
+                        <ul>
+                            <li><span class="material-symbols-outlined">self_improvement</span> Self-Improvement</li>
+                            <li><span class="material-symbols-outlined">fitness_center</span> Be Physically Fit</li>
+                            <li><span class="material-symbols-outlined">flight</span> Travel</li>
+                            <li><span class="material-symbols-outlined">two_wheeler</span> Long Rides</li>
+                            <li><span class="material-symbols-outlined">groups</span> Meet Fav Groups</li>
+                        </ul>
+                    </div>
+                    <img src="assets/minji-emote.png" alt="Emote">
+                </div>
             </div>
+
             <!-- second column container -->
-            <div class="column-2">
+            <div class="flex-container column-2">
                 <!-- container for upper pictures -->
-                <div class="upper-pics">
-                    <img src="assets/car.jpg" alt="Car" class="sample">
-                    <img src="assets/minji.jpg" alt="NewJeans" class="sample">
+                <div class="flex-container upper-picsr">
+                    <img src="assets/motor.jpg" alt="Motorcycle" class="pics">
+                    <img src="assets/japan.jpg" alt="Japan" class="pics">
                 </div>
                 <!-- name -->
                 <div class="name">
                     <h1>Kim Mathew's Visual Board</h1>
                 </div>
                 <!-- container for lower pictures -->
-                <div class="lower-pics">
-                    <div class="sample"></div>
-                    <div class="sample"></div>
+                <div class="flex-container lower-pics">
+                    <a href="https://open.spotify.com/track/3r8RuvgbX9s7ammBn07D3W?si=fa2f3761c538447a">
+                        <img src="assets/ditto.jpg" alt="Song" class="image-links">
+                    </a>
+                    <a href="https://open.spotify.com/track/1MNHqDjKxhtn7YwLCpm7Nt?si=c468e1d93ff14f9f">
+                        <img src="assets/light.jpg" alt="Lyrics" class="image-links">
+                    </a>
                 </div>
             </div>
+
             <!-- third column container -->
-             <div class="column-3">
-                <img src="assets/bias.jpg" alt="Bias" class="sample-1">
-                <img src="assets/minji.jpg" alt="NewJeans" class="sample">
+             <div class="flex-container column-3">
+                <img src="assets/newjeans.jpg" alt="NewJeans" class="long-pic">
+                <img src="assets/minji.jpg" alt="Minji" class="pics">
              </div>
+
         </div>
     </div>
 </body>
