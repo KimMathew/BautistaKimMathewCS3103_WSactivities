@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <link rel = "stylesheet" href = "style.css">
+    <title>Word and Sentence Counter</title>
+</head>
+<body>
+    <!-- Container for Styling -->
+    <div class="container">
+        <!-- Title -->
+        <h2>WORD AND SENTENCE COUNTER</h2>
+
+        <!-- Text Input -->
+        <textarea id="textInput" placeholder="Enter your text here..."></textarea>
+
+        <!-- Main Feature: Counter -->
+        <div class="counter">
+            <div class="counter-item">
+                <div class="counter-label">WORDS</div>
+                <div id="wordcount" class="counter-value">0</div>
+            </div>
+            <div class="counter-item">
+                <div class="counter-label">SENTENCES</div>
+                <div id="sentenceCount" class="counter-value">0</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>
