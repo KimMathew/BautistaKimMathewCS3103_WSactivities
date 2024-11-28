@@ -3,31 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "stylesheet" href = "styles.css">
-    <title>About Me</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Y2K About Me</title>
 </head>
 <body>
-    <section>
-        <div class = "container">
-            <div class = "item">
-                <i class="material-symbols-outlined">person</i>
-                <h1>Basic Info</h1>
-                <p>Name: Kim Mathew C. Bautista</p>
-                <p>Date of Birth: August 29, 2004</p>
-            </div>
-            <div class = "item">
-                <i class="material-symbols-outlined">mail</i>
-                <h1>Contact</h1>
-                <p>Email: 22-08736@g.batstate-u.edu.ph</p>
-                <p>Github: github.com/KimMathew</p>
-            </div>
-            <div class = "item">
-                <i class="material-symbols-outlined">favorite</i>
-                <h1>About</h1>
-                <p>Hobby: Reading, Watching, Playing</p>
-                <p>Location: Philippines</p>
+    <div class="y2k-stars"></div>
+    <div class="y2k-stars2"></div>
+    <div class="y2k-stars3"></div>
+    
+    <div class="page-container">
+        <div class="program-tabs">
+            <div class="tabs">
+                <button class="tab active" data-category="basic-info">
+                    <span id="info-text" class="tab-text">Basic Info</span>
+                </button>
+                <button class="tab" data-category="contact">
+                    <span id="contact-text" class="tab-text">Contact</span>
+                </button>
+                <button class="tab" data-category="hobbies">
+                    <span id="hobbies-text" class="tab-text">Hobbies</span>
+                </button>
             </div>
         </div>
-    </section>
+
+        <div class="tab-content-container">
+            <div id="basic-info" class="tab-content active">
+                <div class="container">
+                    <div class="item matrix-card">
+                        <div class="item-inner">
+                            <div class="pixel-border">
+                                <i class="y2k-icon">👤</i>
+                                <h1>Basic Info</h1>
+                                <p>Name: Kim Mathew C. Bautista</p>
+                                <p>Date of Birth: August 29, 2004</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item matrix-card">
+                        <div class="item-inner">
+                            <div class="pixel-border">
+                                <i class="y2k-icon">🎓</i>
+                                <h1>Education</h1>
+                                <p>University: Batangas State University</p>
+                                <p>Course: BS in Computer Science</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item matrix-card">
+                        <div class="item-inner">
+                            <div class="pixel-border">
+                                <i class="y2k-icon">📍</i>
+                                <h1>Location</h1>
+                                <p>Country: Philippines</p>
+                                <p>City: Batangas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="contact" class="tab-content">
+                <div class="container">
+                    <div class="item bubble-card">
+                        <div class="item-inner">
+                            <i class="y2k-icon">📧</i>
+                            <h1>Email</h1>
+                            <p>Academic: 22-08736@g.batstate-u.edu.ph</p>
+                            
+                        </div>
+                    </div>
+                    <div class="item bubble-card">
+                        <div class="item-inner">
+                            <i class="y2k-icon">📱</i>
+                            <h1>Phone</h1>
+                            <p>Mobile: 0916-222-4481</p>
+                        </div>
+                    </div>
+                    <div class="item bubble-card">
+                        <div class="item-inner">
+                            <i class="y2k-icon">💻</i>
+                            <h1>Social</h1>
+                            <p>GitHub: github.com/KimMathew</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="hobbies" class="tab-content">
+                <div class="container">
+                    <div class="item arcade-card">
+                        <div class="item-inner">
+                            <i class="y2k-icon">📚</i>
+                            <h1>Reading Manhwas</h1>
+                            <p>Favorite: Solo Leveling</p>
+                        </div>
+                    </div>
+                    <div class="item arcade-card">
+                        <div class="item-inner">
+                            <i class="y2k-icon">🎮</i>
+                            <h1>Gaming</h1>
+                            <p>Favorite Game: Mobile Legends</p>
+                            
+                        </div>
+                    </div>
+                    <div class="item arcade-card">
+                        <div class="item-inner">
+                            <i class="y2k-icon">🎧</i>
+                            <h1>Listening Music</h1>
+                            <p>Favorite Genre: K-Pop</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

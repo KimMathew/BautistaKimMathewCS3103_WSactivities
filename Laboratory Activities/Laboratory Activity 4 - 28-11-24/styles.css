@@ -1,56 +1,486 @@
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
-/* This is for the universal styling */
 * {
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'VT323', monospace;
 }
 
-/* Style for p */
-p {
-    color: #A5A3A7;
+/* Y2K Star Animation Background */
+.y2k-stars, .y2k-stars2, .y2k-stars3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: transparent;
 }
 
-/* Style for h1 */
-h1 {
-    font-size: 18px;
+.y2k-stars {
+    background: repeating-linear-gradient(
+        45deg,
+        transparent 0,
+        transparent 1px,
+        transparent 0,
+        transparent 50%
+    ) 0 0/20px 20px;
 }
 
-/* Styles for the body */
+.y2k-stars2 {
+    background-image: radial-gradient(
+        2px 2px at 20px 30px,
+        #ffffff 50%,
+        rgba(0, 0, 0, 0)
+    ),
+    radial-gradient(
+        2px 2px at 40px 70px,
+        #ffffff 50%,
+        rgba(0, 0, 0, 0)
+    ),
+    radial-gradient(
+        2px 2px at 50px 160px,
+        #ffffff 50%,
+        rgba(0, 0, 0, 0)
+    );
+    animation: y2kStars 4s linear infinite;
+}
+
+.y2k-stars3 {
+    background-image: radial-gradient(
+        1px 1px at 100px 150px,
+        #ffffff 50%,
+        rgba(0, 0, 0, 0)
+    ),
+    radial-gradient(
+        1px 1px at 200px 250px,
+        #ffffff 50%,
+        rgba(0, 0, 0, 0)
+    ),
+    radial-gradient(
+        1px 1px at 300px 350px,
+        #ffffff 50%,
+        rgba(0, 0, 0, 0)
+    );
+    animation: y2kStars 3s linear infinite;
+}
+
+@keyframes y2kStars {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100px); }
+}
+
 body {
-    background-color: #282828;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(45deg, #000000, #1a1a1a);
+    transition: all 0.5s;
+    overflow-x: hidden;
 }
 
-/* Styles for the container */
+.page-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Y2K Tabs */
+.program-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+/* Default Tabs Background */
+.tabs {
+    background: linear-gradient(45deg, #ff00ff, #00ffff); /* Fallback default */
+    padding: 3px;
+    border-radius: 15px;
+    display: flex;
+    gap: 0.5rem;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Specific Tabs Background Colors */
+.basic-info-tabs-bg {
+    background: linear-gradient(45deg, #00ff00, #008000); /* Green */
+}
+
+.contact-tabs-bg {
+    background: linear-gradient(45deg, #ff6b6b, #ff9999); /* Red */
+}
+
+/* for hobbies-tabs-bg, it is set to default */
+
+.tab {
+    background: transparent;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.tab::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tab:hover::before {
+    opacity: 0.5;
+}
+
+.tab-text {
+    position: relative;
+    z-index: 1;
+    color: #ffffff;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tab.active {
+    background: #ffffff;
+}
+
+.tab.active .tab-text {
+    font-weight: bold;
+}
+
+.tab.active #info-text {
+    background: linear-gradient(to right, #0f0, #00ff00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+}
+
+.tab.active #contact-text {
+    background: linear-gradient(to right, #ff6b6b, #ff9999);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.tab.active #hobbies-text {
+    background: linear-gradient(45deg, #ff00ff, #00ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Matrix Card Style (Basic Info) */
+.matrix-card {
+    background: linear-gradient(45deg, #0f0, #00ff00);
+    border: 2px solid #0f0;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.matrix-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent 0%,
+        rgba(0, 255, 0, 0.1) 1%,
+        transparent 2%
+    );
+    animation: matrixRain 20s linear infinite;
+}
+
+@keyframes matrixRain {
+    0% { transform: translateY(-50%); }
+    100% { transform: translateY(50%); }
+}
+
+/* Bubble Card Style (Contact) */
+.bubble-card {
+    background: linear-gradient(135deg, #ff6b6b, #ff9999);
+    border-radius: 30px;
+    border: 4px solid #ffffff;
+    box-shadow: 
+        inset 0 0 20px rgba(255, 255, 255, 0.5),
+        0 0 20px rgba(255, 107, 107, 0.5);
+}
+
+.bubble-card .item-inner {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 26px;
+    height: 100%;
+    backdrop-filter: blur(5px);
+}
+
+/* Arcade Card Style (Hobbies) */
+.arcade-card {
+    background: linear-gradient(45deg, #ff00ff, #00ffff);
+    border: 4px solid #ffffff;
+    box-shadow: 
+        0 0 20px rgba(255, 0, 255, 0.5),
+        inset 0 0 10px rgba(255, 255, 255, 0.5);
+    position: relative;
+    overflow: hidden; /* Add overflow hidden */
+}
+
+/* Move the scanline effect to hover state */
+.arcade-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.1) 2px,
+        rgba(0, 0, 0, 0.1) 4px
+    );
+    pointer-events: none;
+    opacity: 0; /* Start with opacity 0 */
+    transition: opacity 0.3s ease; /* Add transition */
+    z-index: 1; /* Lower z-index */
+}
+
+/* Show effect on hover */
+.arcade-card:hover::before {
+    opacity: 1;
+}
+
+/* Remove the ::after pseudo-element that was causing overlap */
+.arcade-card::after {
+    display: none;
+}
+
+/* Ensure content stays above the effect */
+.arcade-card .item-inner {
+    position: relative;
+    z-index: 2;
+}
+
+/* Common Card Styles */
+.item {
+    box-sizing: border-box;
+    width: 350px;
+    height: 200px;
+    border-radius: 15px;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.item:hover {
+    transform: translateY(-10px) scale(1.05);
+}
+
+.item-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.y2k-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+p {
+    font-size: 1.3rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
 .container {
     display: flex;
-    margin: 0 auto; /*no margin at top & bottom, auto for left & right */
     justify-content: center;
-    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 
-/* Styles for the items inside the container */
-.item {
-    box-sizing: content-box;
-    width: 300px;
-    height: 150px;
-    padding: 5px;
-    background-color: #433E47;
-    border-radius: 5px;
-    text-align: center;
-    line-height: 2;
-    margin: 15px
+/* Tab Content Animation */
+.tab-content {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
 }
 
-/* Responsive layout - makes a one column layout instead of a two-column layout */
-@media (max-width: 800px) {
+.tab-content.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Background Styles */
+.basic-info-bg {
+    background: linear-gradient(45deg, #000000, #001100);
+}
+
+.contact-bg {
+    background: linear-gradient(45deg, #ff6b6b, #ff9999);
+}
+
+.hobbies-bg {
+    background: linear-gradient(45deg, #ff00ff, #00ffff);
+}
+
+/* Pixel Border Effect */
+.pixel-border {
+    position: relative;
+    padding: 1rem;
+}
+
+.pixel-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(to right, #0f0 2px, transparent 2px) 0 0,
+        linear-gradient(to right, #0f0 2px, transparent 2px) 0 100%,
+        linear-gradient(to left, #0f0 2px, transparent 2px) 100% 0,
+        linear-gradient(to left, #0f0 2px, transparent 2px) 100% 100%,
+        linear-gradient(to bottom, #0f0 2px, transparent 2px) 0 0,
+        linear-gradient(to bottom, #0f0 2px, transparent 2px) 100% 0,
+        linear-gradient(to top, #0f0 2px, transparent 2px) 0 100%,
+        linear-gradient(to top, #0f0 2px, transparent 2px) 100% 100%;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    pointer-events: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
     .container {
-      flex-direction: column;
+        flex-direction: column;
+        align-items: center;
     }
-  }
+
+    .item {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .tabs {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .tab {
+        width: 100%;
+        text-align: center;
+    }
+
+    .page-container {
+        padding: 1rem;
+    }
+}
+
+/* Chrome Effect */
+.item::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        rgba(255,255,255,0.1), 
+        rgba(255,255,255,0.5), 
+        rgba(255,255,255,0.1));
+    border-radius: 16px;
+    z-index: -1;
+    animation: chromeSpin 3s linear infinite;
+}
+
+@keyframes chromeSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Holographic Effect */
+.bubble-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        125deg,
+        transparent 0%,
+        transparent 40%,
+        rgba(255, 255, 255, 0.3) 40%,
+        rgba(255, 255, 255, 0.3) 60%,
+        transparent 60%,
+        transparent 100%
+    );
+    background-size: 200% 200%;
+    animation: holographic 3s linear infinite;
+}
+
+@keyframes holographic {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 200% 200%;
+    }
+}
+
+/* Retro Scanlines */
+.arcade-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.1) 2px,
+        rgba(0, 0, 0, 0.1) 4px
+    );
+    pointer-events: none;
+    z-index: 2;
+}
